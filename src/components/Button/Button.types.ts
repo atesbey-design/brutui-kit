@@ -2,7 +2,7 @@ export interface ButtonProps {
   label: string;
   onClick: () => void;
   disabled?: boolean;
-  variant?: 'primary' | 'secondary' | 'destructive' | 'outline' | 'ghost' | 'link' | 'brutal' | 'neobrutal' | 'pixelated' | 'glitch' | 'retro' | 'gradient' | 'warning' | 'success';
+  variant?: 'primary' | 'secondary' | 'destructive' | 'outline' | 'ghost' | 'link' | 'brutal' | 'neobrutal' | 'pixelated' | 'glitch' | 'retro' | 'gradient' | 'warning' | 'success' | 'danger' | 'info' | 'custom';
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'xlarge' | 'custom';
   loading?: boolean;
   icon?: React.ReactNode;
@@ -21,4 +21,5 @@ export interface ButtonProps {
       horizontal: number;
     };
   };
+  style?: React.CSSProperties;
 }

@@ -10,3 +10,7 @@ export { default as Dialog } from './components/Dialog/Dialog';
 export * from './components/Dialog/Dialog.types';
 export { default as Dropdown } from './components/Dropdown/Dropdown';
 export * from './components/Dropdown/Dropdown.types';
+export { default as Notification } from './components/Notification/Notification';
+export * from './components/Notification/Notification.types';
+export { default as Popover } from './components/Popover/Popover';
+export * from './components/Popover/Popover.types';

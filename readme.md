@@ -1,9 +1,6 @@
+# BrutUI
 
-
-
-# Neobrut UI Kit
-
-Neobrut UI Kit is a comprehensive library designed to facilitate the development of modern and minimal user interface components that adhere to the neo-brutalism design style. Neo-brutalism emphasizes bold colors, sharp contrasts, and a sense of rawness, making it ideal for projects that wish to stand out visually. This UI Kit is built using React components and TypeScript, offering developers a highly flexible and modular structure that allows for the rapid and consistent building of projects, all while ensuring maintainability and scalability.
+BrutUI is a comprehensive library designed to facilitate the development of modern and minimal user interface components that adhere to the neo-brutalism design style. Neo-brutalism emphasizes bold colors, sharp contrasts, and a sense of rawness, making it ideal for projects that wish to stand out visually. This UI Kit is built using React components and TypeScript, offering developers a highly flexible and modular structure that allows for the rapid and consistent building of projects, all while ensuring maintainability and scalability.
 
 ## Table of Contents
 
@@ -16,6 +13,8 @@ Neobrut UI Kit is a comprehensive library designed to facilitate the development
   - [DataTable](#datatable)
   - [Dialog](#dialog)
   - [Dropdown](#dropdown)
+  - [Popover](#popover)
+  - [Notification](#notification)
 - [Customization](#customization)
 - [Style Management](#style-management)
 - [Contributing](#contributing)
@@ -23,35 +22,39 @@ Neobrut UI Kit is a comprehensive library designed to facilitate the development
 
 ## Installation
 
-Adding Neobrut UI Kit to your project is a straightforward process that can be completed using npm or yarn. With just a few simple commands, you can integrate the UI Kit and begin using the powerful components it provides.
+Adding BrutUI to your project is a straightforward process that can be completed using npm or yarn. With just a few simple commands, you can integrate the UI Kit and begin using the powerful components it provides.
 
 ### NPM
-To install the Neobrut UI Kit using npm, use the following command:
+To install BrutUI using npm, use the following command:
 ```sh
-npm install neobrut-ui-kit
+npm install brutui
 ```
 
 ### Yarn
 Alternatively, you can use yarn to install the library:
 ```sh
-yarn add neobrut-ui-kit
+yarn add brutui
 ```
 
 ## Usage
 
-Once Neobrut UI Kit is installed, you can start using its components in your project. The components are designed to be easily imported, enabling you to quickly add sophisticated UI elements to your application.
+Once BrutUI is installed, you can start using its components in your project. The components are designed to be easily imported, enabling you to quickly add sophisticated UI elements to your application.
 
 ### Example Usage
-Below is an example of how you can use various Neobrut UI Kit components in your application.
+Below is an example of how you can use various BrutUI components in your application.
 ```jsx
 import React from 'react';
-import { Button, Input, Checkbox, Dialog, Dropdown } from 'neobrut-ui-kit';
+import { Button, Input, Checkbox, Dialog, Dropdown, Popover, Notification } from 'brutui';
 
 const App = () => (
   <div>
     <Button kind="primary" onClick={() => alert('Button clicked!')}>Primary Button</Button>
     <Input label="Your Name" placeholder="Enter your name..." />
     <Checkbox label="I accept the terms" onChange={(checked) => console.log(checked)} />
+    <Popover content="This is a popover example.">
+      <Button kind="info">Hover me</Button>
+    </Popover>
+    <Notification title="Success" message="Your action was successful!" variant="success" />
   </div>
 );
 
@@ -60,10 +63,10 @@ export default App;
 
 ## Components
 
-Neobrut UI Kit offers a wide range of components, each tailored to deliver both functionality and aesthetics in line with the neo-brutalism style. Below are the key components provided by the kit, along with their properties and usage details.
+BrutUI offers a wide range of components, each tailored to deliver both functionality and aesthetics in line with the neo-brutalism style. Below are the key components provided by the kit, along with their properties and usage details.
 
 ### Button
-The Button component is a fundamental element that is used to initiate specific actions within an application. Neobrut UI Kit provides several types of buttons, including `primary`, `secondary`, `success`, `danger`, and more, each with distinct visual styles.
+The Button component is a fundamental element that is used to initiate specific actions within an application. BrutUI provides several types of buttons, including primary, secondary, success, danger, and more, each with distinct visual styles.
 
 **Props**:
 - `label`: The text displayed on the button, helping users understand its function.
@@ -113,9 +116,27 @@ The Dropdown component provides a way to offer multiple selectable options to us
 - `items`: An array of items displayed when the dropdown is opened, each item being selectable.
 - `kind`: Defines the visual style of the dropdown (`default`, `neutral`, `success`, `danger`), helping align with the application's theme.
 
+### Popover
+The Popover component is used to display additional content in a floating layer that pops up over the rest of the page. It is often triggered by clicking or hovering over an element such as a button.
+
+**Props**:
+- `content`: The content to be displayed within the popover.
+- `trigger`: Defines how the popover is triggered (`click`, `hover`).
+- `position`: Determines where the popover appears relative to the trigger element (`top`, `bottom`, `left`, `right`).
+
+### Notification
+The Notification component is used to communicate important information to users. It supports different styles, including `success`, `error`, `warning`, `info`, and can be temporary or permanent.
+
+**Props**:
+- `title`: The title of the notification, providing context.
+- `message`: The main content or message of the notification.
+- `variant`: Defines the type of notification (`default`, `success`, `error`, `warning`, `info`).
+- `isTemporary`: Indicates whether the notification is temporary or permanent.
+- `duration`: The duration the notification is visible if it is temporary.
+
 ## Customization
 
-Neobrut UI Kit components are designed to be easily customizable to match the needs of any project. You can modify the default styles by using your style files, whether through `styled-components`, CSS, or any preferred method. Each component has a `className` prop that allows you to pass custom styles.
+BrutUI components are designed to be easily customizable to match the needs of any project. You can modify the default styles by using your style files, whether through `styled-components`, CSS, or any preferred method. Each component has a `className` prop that allows you to pass custom styles.
 
 ```jsx
 <Button className="my-custom-button" kind="primary">Custom Button</Button>
@@ -124,7 +145,7 @@ This approach gives you complete control over the styling of each element, makin
 
 ## Style Management
 
-Neobrut UI Kit uses `styled-components` for styling, which provides a robust and flexible solution for managing styles. This approach not only ensures that each component has a consistent look and feel but also makes it easy for developers to extend or modify styles when needed.
+BrutUI uses `styled-components` for styling, which provides a robust and flexible solution for managing styles. This approach not only ensures that each component has a consistent look and feel but also makes it easy for developers to extend or modify styles when needed.
 
 The UI Kit's color palette is designed to align with the neo-brutalism aesthetic, featuring bold, contrasting colors that make UI elements stand out.
 
@@ -137,14 +158,14 @@ Color palette:
 
 ## Contributing
 
-Contributions are always welcome! If you would like to contribute to Neobrut UI Kit, follow these steps:
+Contributions are always welcome! If you would like to contribute to BrutUI, follow these steps:
 
 1. **Fork the Repository**: Create a personal copy of the repository by forking it.
 2. **Create a Branch**: Make a new branch for your feature or bug fix.
 3. **Commit Changes**: Make your changes and commit them with a clear and descriptive message.
 4. **Submit a Pull Request**: Once you are happy with your changes, create a Pull Request (PR) to merge your changes into the main repository.
 
-We encourage developers of all skill levels to contribute. Your contributions help us make Neobrut UI Kit even better for everyone!
+We encourage developers of all skill levels to contribute. Your contributions help us make BrutUI even better for everyone!
 
 Thank you in advance to all contributors for helping to improve this project!
 

@@ -19,6 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   lineHeight = 1.5,
   maxLines,
   customDimensions,
+  style,
 }) => {
   // Convert size prop to match StyledButton size prop type
   const getButtonSize = (size: ButtonProps['size']): 'small' | 'medium' | 'large' => {
@@ -49,6 +50,7 @@ const Button: React.FC<ButtonProps> = ({
       lineHeight={lineHeight}
       maxLines={maxLines}
       customDimensions={customDimensions}
+      style={style}
     >
       {loading ? (
         <span className="spinner" />

@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { SortDirection } from './Datatable.types';
+import { colorPalette } from '../../color.type';
 
 export const TableContainer = styled.div`
-  border: 1px solid #e2e8f0;
+  border: 1px solid ${colorPalette.gray[3]};
   border-radius: 8px;
   padding: 16px;
   background: #ffffff;
   font-family: system-ui, -apple-system, sans-serif;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px ${colorPalette.black[4]};
 `;
 
 export const Table = styled.table`
@@ -16,8 +17,8 @@ export const Table = styled.table`
 `;
 
 export const TableHeader = styled.thead`
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
+  background: ${colorPalette.gray[4]};
+  border-bottom: 1px solid ${colorPalette.gray[3]};
 `;
 
 export const TableHeaderCell = styled.th<{
@@ -28,7 +29,7 @@ export const TableHeaderCell = styled.th<{
   padding: 12px 16px;
   text-align: left;
   font-weight: 600;
-  color: #475569;
+  color: ${colorPalette.gray[1]};
   font-size: 14px;
   width: ${props => props.width || 'auto'};
   
@@ -37,7 +38,7 @@ export const TableHeaderCell = styled.th<{
     user-select: none;
     
     &:hover {
-      background: #f1f5f9;
+      background: ${colorPalette.gray[3]};
     }
     
     &:after {
@@ -50,7 +51,7 @@ export const TableHeaderCell = styled.th<{
 
 export const TableBody = styled.tbody`
   tr:nth-child(even) {
-    background: #f8fafc;
+    background: ${colorPalette.gray[4]};
   }
 `;
 
@@ -58,26 +59,26 @@ export const TableRow = styled.tr<{
   selectable?: boolean;
   selected?: boolean;
 }>`
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid ${colorPalette.gray[3]};
   transition: background-color 0.2s;
 
   ${props => props.selectable && `
     cursor: pointer;
     
     &:hover {
-      background: #f1f5f9;
+      background: ${colorPalette.gray[3]};
     }
   `}
 
   ${props => props.selected && `
-    background: #e0f2fe !important;
+    background: ${colorPalette.blue[4]} !important;
   `}
 `;
 
 export const TableCell = styled.td`
   padding: 12px 16px;
   font-size: 14px;
-  color: #334155;
+  color: ${colorPalette.black[1]};
 `;
 
 export const Pagination = styled.div`
@@ -93,17 +94,17 @@ export const PageButton = styled.button<{
   active?: boolean;
 }>`
   padding: 6px 12px;
-  border: 1px solid ${props => props.active ? '#3b82f6' : '#e2e8f0'};
+  border: 1px solid ${props => props.active ? colorPalette.blue[0] : colorPalette.gray[3]};
   border-radius: 4px;
-  background: ${props => props.active ? '#3b82f6' : '#ffffff'};
-  color: ${props => props.active ? '#ffffff' : '#64748b'};
+  background: ${props => props.active ? colorPalette.blue[0] : '#ffffff'};
+  color: ${props => props.active ? '#ffffff' : colorPalette.gray[1]};
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
 
   &:hover:not(:disabled) {
-    background: ${props => props.active ? '#2563eb' : '#f8fafc'};
+    background: ${props => props.active ? colorPalette.blue[1] : colorPalette.gray[4]};
   }
 
   &:disabled {

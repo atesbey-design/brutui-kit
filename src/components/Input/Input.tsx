@@ -10,7 +10,7 @@ import {
   TrailingText,
   InputContainer,
 } from './Input.styles';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { Eye, EyeOff } from 'lucide-react';
 
 const Input: React.FC<InputProps> = ({
   label,
@@ -23,7 +23,6 @@ const Input: React.FC<InputProps> = ({
   helperText,
   required,
   icon,
-  showPasswordToggle,
   autoFill,
   leadingText,
   trailingText,
@@ -32,18 +31,18 @@ const Input: React.FC<InputProps> = ({
   className,
 }) => {
   const [inputValue, setInputValue] = useState(value);
-  const [inputType, setInputType] = useState<'text' | 'password'>(type as 'text' | 'password');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setInputValue(newValue);
     if (onChange) {
-      onChange(e); // Pass the entire event object instead of just the string value
+      onChange(e);
     }
   };
 
-  const handleTogglePassword = () => {
-    setInputType((prevType: 'text' | 'password') => (prevType === 'password' ? 'text' : 'password'));
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -52,7 +51,7 @@ const Input: React.FC<InputProps> = ({
       <InputContainer>
         {leadingText && <LeadingText>{leadingText}</LeadingText>}
         <InputField
-          type={inputType}
+          type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
           placeholder={placeholder}
           value={inputValue}
           onChange={handleInputChange}
@@ -62,9 +61,12 @@ const Input: React.FC<InputProps> = ({
           size={size}
         />
         {icon && <IconWrapper>{icon}</IconWrapper>}
-        {showPasswordToggle && type === 'password' && (
-          <IconWrapper onClick={handleTogglePassword}>
-            {inputType === 'password' ? <AiFillEye /> : <AiFillEyeInvisible />}
+        {type === 'password' && (
+          <IconWrapper 
+            onClick={togglePasswordVisibility}
+            style={{ cursor: 'pointer', color: '#000000' }}
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
           </IconWrapper>
         )}
         {trailingText && <TrailingText>{trailingText}</TrailingText>}

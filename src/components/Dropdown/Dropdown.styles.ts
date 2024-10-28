@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { DropdownProps } from './Dropdown.types';
+import { colorPalette } from '../../color.type';
 
 export const DropdownContainer = styled.div`
   position: relative;
@@ -19,21 +20,21 @@ export const DropdownButton = styled.button<{
       default: return '8px 16px';
     }
   }};
-  border: 3px solid #000000;
+  border: 3px solid ${colorPalette.black[0]};
   background: ${props => {
     switch(props.kind) {
-      case 'neutral': return '#E0E0E0';
-      case 'success': return '#4CAF50';
-      case 'danger': return '#FF4444';
-      default: return '#2196F3';
+      case 'neutral': return colorPalette.gray[3];
+      case 'success': return colorPalette.green[0];
+      case 'danger': return colorPalette.red[0];
+      default: return colorPalette.blue[0];
     }
   }};
-  color: #000000;
+  color: ${colorPalette.black[0]};
   font-family: 'NeoBrutQa', sans-serif;
   font-size: ${props => props.size === 'large' ? '16px' : '14px'};
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
   opacity: ${props => props.disabled ? 0.5 : 1};
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 4px 4px 0px ${colorPalette.black[0]};
   transition: transform 0.1s, box-shadow 0.1s;
   display: flex;
   align-items: center;
@@ -58,9 +59,9 @@ export const DropdownContent = styled.div<{
   top: 100%;
   left: 0;
   min-width: 200px;
-  background: #ffffff;
-  border: 3px solid #000000;
-  box-shadow: 8px 8px 0px #000000;
+  background: ${colorPalette.gray[4]};
+  border: 3px solid ${colorPalette.black[0]};
+  box-shadow: 8px 8px 0px ${colorPalette.black[0]};
   display: ${props => props.isOpen ? 'block' : 'none'};
   z-index: 1000;
   max-height: ${props => props.maxHeight ? `${props.maxHeight}px` : '300px'};
@@ -79,18 +80,18 @@ export const DropdownItem = styled.div<{
   transition: background-color 0.2s;
 
   &:hover:not(:disabled) {
-    background-color: #F5F5F5;
+    background-color: ${colorPalette.gray[3]};
   }
 
   &:active:not(:disabled) {
-    background-color: #E0E0E0;
+    background-color: ${colorPalette.gray[2]};
   }
 `;
 
 export const DropdownFooter = styled.div`
   padding: 8px 16px;
-  border-top: 3px solid #000000;
-  background: #ffffff;
+  border-top: 3px solid ${colorPalette.black[0]};
+  background: ${colorPalette.gray[4]};
 `;
 
 export const IconWrapper = styled.span`

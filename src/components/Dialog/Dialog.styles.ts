@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { DialogProps } from './Dialog.types';
+import { colorPalette } from '../../color.type';
 
 export const DialogOverlay = styled.div<{ isOpen: boolean; style?: React.CSSProperties; }>`
   position: fixed;
@@ -22,9 +23,9 @@ export const DialogContainer = styled.div<{
   isCritical?: boolean;
   style?: React.CSSProperties;
 }>`
-  background: #ffffff;
-  border: 3px solid #000000;
-  box-shadow: 8px 8px 0px #000000;
+  background: ${colorPalette.gray[4]};
+  border: 3px solid ${colorPalette.black[0]};
+  box-shadow: 8px 8px 0px ${colorPalette.black[0]};
   min-width: ${props => props.minWidth ? `${props.minWidth}px` : '320px'};
   min-height: ${props => props.minHeight ? `${props.minHeight}px` : '200px'};
   max-width: 90vw;
@@ -41,7 +42,7 @@ export const DialogContainer = styled.div<{
   transform: ${props => props.isCritical ? 'rotate(-1deg)' : 'none'};
 
   &:active {
-    box-shadow: 4px 4px 0px #000000;
+    box-shadow: 4px 4px 0px ${colorPalette.black[0]};
     transform: translate(4px, 4px) ${props => props.isCritical ? 'rotate(-1deg)' : ''};
   }
 `;
@@ -51,8 +52,8 @@ export const DialogHeader = styled.div<{
   style?: React.CSSProperties;
 }>`
   padding: 16px 24px;
-  border-bottom: 3px solid #000000;
-  background: ${props => props.isCritical ? '#FF4444' : '#ffffff'};
+  border-bottom: 3px solid ${colorPalette.black[0]};
+  background: ${props => props.isCritical ? colorPalette.red[0] : colorPalette.gray[4]};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,7 +64,7 @@ export const DialogTitle = styled.h2`
   font-size: 24px;
   font-weight: 700;
   font-family: 'NeoBrutQa', sans-serif;
-  color: #000000;
+  color: ${colorPalette.black[0]};
 `;
 
 export const DialogContent = styled.div<{
@@ -78,11 +79,11 @@ export const DialogFooter = styled.div<{
   style?: React.CSSProperties;
 }>`
   padding: 16px 24px;
-  border-top: 3px solid #000000;
+  border-top: 3px solid ${colorPalette.black[0]};
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  background: #ffffff;
+  background: ${colorPalette.gray[4]};
 `;
 
 export const DialogButton = styled.button<{
@@ -90,20 +91,20 @@ export const DialogButton = styled.button<{
   disabled?: boolean;
 }>`
   padding: 8px 16px;
-  border: 3px solid #000000;
+  border: 3px solid ${colorPalette.black[0]};
   background: ${props => {
     switch(props.variant) {
-      case 'primary': return '#4CAF50';
-      case 'secondary': return '#2196F3';
-      case 'tertiary': return '#FFC107';
+      case 'primary': return colorPalette.green[0];
+      case 'secondary': return colorPalette.blue[0];
+      case 'tertiary': return colorPalette.yellow[0];
     }
   }};
-  color: #000000;
+  color: ${colorPalette.black[0]};
   font-family: 'NeoBrutQa', sans-serif;
   font-size: 14px;
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
   opacity: ${props => props.disabled ? 0.5 : 1};
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 4px 4px 0px ${colorPalette.black[0]};
   transition: transform 0.1s, box-shadow 0.1s;
 
   &:active:not(:disabled) {
@@ -122,14 +123,14 @@ export const CloseButton = styled.button`
   right: 16px;
   width: 32px;
   height: 32px;
-  border: 3px solid #000000;
-  background: #FF4444;
+  border: 3px solid ${colorPalette.black[0]};
+  background: ${colorPalette.red[0]};
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  box-shadow: 2px 2px 0px #000000;
+  box-shadow: 2px 2px 0px ${colorPalette.black[0]};
 
   &:active {
     transform: translate(2px, 2px);
@@ -141,5 +142,5 @@ export const DialogImage = styled.img`
   max-width: 100%;
   height: auto;
   margin-bottom: 16px;
-  border: 3px solid #000000;
+  border: 3px solid ${colorPalette.black[0]};
 `;

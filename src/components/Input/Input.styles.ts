@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components';
 import { InputProps } from './Input.types';
+import { colorPalette } from '../../color.type';
 
 const colors = {
-  primary: '#4B59CD',
-  success: '#28a745',
-  danger: '#dc3545',
-  info: '#17a2b8',
-  warning: '#ffc107',
-  neutral: '#1D1D1C',
-  white: '#FEFEFE',
+  primary: colorPalette.blue[0],
+  success: colorPalette.green[0],
+  danger: colorPalette.red[0],
+  info: colorPalette.blue[2],
+  warning: colorPalette.yellow[0],
+  neutral: colorPalette.black[0],
+  white: colorPalette.gray[4],
 };
 
 const sizes = {
@@ -21,13 +22,18 @@ const inputBaseStyles = css<InputProps>`
   width: 100%;
   max-width: ${({ size }) => (size === 'small' ? '150px' : size === 'large' ? '350px' : '250px')};
   padding: ${({ size }) => (size ? sizes[size] : sizes.medium)};
-  border: 2px solid ${colors.neutral};
+  border: 4px solid #000000;
   border-radius: 4px;
-  background-color: ${colors.white};
+  background-color: #FFFFFF;
   color: ${colors.neutral};
   font-size: 1rem;
   outline: none;
   transition: box-shadow 0.2s ease-in-out;
+
+  &::placeholder {
+    color: #666666;
+    font-weight: bold;
+  }
 
   ${({ validationState }) =>
     validationState &&
@@ -38,13 +44,13 @@ const inputBaseStyles = css<InputProps>`
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: #e0e0e0;
-      color: #9e9e9e;
+      background-color: ${colorPalette.gray[3]};
+      color: ${colorPalette.gray[1]};
       cursor: not-allowed;
     `}
 
   &:focus {
-    box-shadow: 0 0 0 4px rgba(75, 89, 205, 0.3);
+    box-shadow: 0 0 0 4px ${colorPalette.blue[4]};
   }
 
   &:hover {
